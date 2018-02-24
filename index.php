@@ -4,7 +4,9 @@
 <?php 
 include_once '/script1.php';
 $categories = getCategoriesList();?>
-
+<head>
+    <title>Form</title>
+</head>
 <body  style="text-align: center">
 <h2>Assignment</h2>
 <form>
@@ -80,4 +82,3 @@ $categories = getCategoriesList();?>
     
     });
 </script>
- 

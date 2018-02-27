@@ -1,48 +1,51 @@
 $(document).ready(function(){
 
-    $("#select1").on('change', function () {
+    $("#centersList").on('change', function () {
         $.ajax({
-            url: '../script2.php',
+            url: '/desk_list',
             type: 'POST',
             data: {
-                id: $(this).val()
+                id_callcenter: $(this).val()
             },
             success: function (data) {
-                data = JSON.parse(data);
+                $('#deskList').prop('disabled', false);
+                $("#deskList").empty().append($('<option>', {value: 0, text: 'Select Desk'}));
                 for (var key in data) {
-                    $("#select2").append($('<option>', {value: data[key].id, text: (data[key].name)}));
+                    $("#deskList").append($('<option>', {value: data[key].id, text: (data[key].desk_name)}));
                 }
             }
         });
     });
 
-    $("#select2").on('change', function () {
+    $("#deskList").on('change', function () {
         $.ajax({
-            url: '../script3.php',
+            url: '/team_list',
             type: 'POST',
             data: {
-                id: $(this).val()
+                id_desk: $(this).val()
             },
             success: function (data) {
-                data = JSON.parse(data);
+                $('#teamList').prop('disabled', false);
+                $("#teamList").empty().append($('<option>', {value: 0, text: 'Select Team'}));
                 for (var key in data) {
-                    $("#select3").append($('<option>', {value: data[key].id, text: (data[key].name)}));
+                    $("#teamList").append($('<option>', {value: data[key].id, text: (data[key].team_name)}));
                 }
             }
         });
     });
 
-    $("#select3").on('change', function () {
+    $("#teamList").on('change', function () {
         $.ajax({
-            url: '../script4.php',
+            url: '/user_list',
             type: 'POST',
             data: {
-                id: $(this).val()
+                id_team: $(this).val()
             },
             success: function (data) {
-                data = JSON.parse(data);
+                $('#userList').prop('disabled', false);
+                $("#userList").empty().append($('<option>', {value: 0, text: 'Select Salesman'}));
                 for (var key in data) {
-                    $("#select4").append($('<option>', {value: data[key].id, text: (data[key].name)}));
+                    $("#userList").append($('<option>', {value: data[key].id, text: (data[key].stage_name)}));
                 }
             }
         });

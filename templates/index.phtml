@@ -1,0 +1,41 @@
+<head>
+    <title>Form</title>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body
+
+<div class="col-md-2">
+<form>
+
+<div class="form-group">
+    <label for="centersList">Call Center</label>
+    <select id="centersList" class="form-control">
+        <option value="">Select Call Center</option>
+        <?php foreach ($categories as $categoryItem): ?>
+        <option value="<?php echo $categoryItem['id']; ?>"><?php echo $categoryItem['name']; ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="deskList">Desk</label>
+    <select id="deskList" class="form-control" disabled="disabled"></select>
+</div>
+
+<div class="form-group">
+    <label for="teamList">Team</label>
+    <select id="teamList" class="form-control" disabled="disabled"></select>
+</div>
+
+<div class="form-group">
+    <label for="userList">Salesman</label>
+    <select id="userList" class="form-control" disabled="disabled"></select>
+</div>
+</form>
+
+</div>
+
+</body>
